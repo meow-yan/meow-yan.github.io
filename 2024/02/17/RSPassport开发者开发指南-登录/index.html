@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="Meow_Yan的博客">
+    <meta property="og:type" content="website">
+    <meta name="description" content="Meow_Yan的博客">
+    <meta name="keyword"  content="hexo,Meow_Yan,Meow_Yan&#39;sBlog,RSSoftware">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        RSPassport开发者开发指南-登录 - Meow_Yan
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Meow_Yan" type="application/atom+xml">
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Meow_Yan</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-1-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text">Part.1 准备工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-2-%E7%A1%AE%E5%AE%9A%E4%B8%80%E4%B8%AARedirection-URI"><span class="toc-text">Part.2 确定一个Redirection URI</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-3-%E8%AF%B7%E6%B1%82%E6%8E%88%E6%9D%83%E7%A0%81"><span class="toc-text">Part.3 请求授权码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-4-%E8%AF%B7%E6%B1%82access-token%E5%92%8Crefresh-token"><span class="toc-text">Part.4 请求access_token和refresh_token</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-5-%E5%88%B7%E6%96%B0access-token"><span class="toc-text">Part.5 刷新access_token</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        RSPassport开发者开发指南-登录
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2024-02-17 17:36:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#RSSoftware" title="RSSoftware">RSSoftware</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#RSPassport" title="RSPassport">RSPassport</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Development" title="Development">Development</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#RSPassport Documentation" title="RSPassport Documentation">RSPassport Documentation</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <p>各位，大家好。我是Meow_Yan，接下来我将教你如何将您的应用注册到RSPassport系统，并遵循OAuth2.0标准登录。</p>
+<h1 id="Part-1-准备工作"><a href="#Part-1-准备工作" class="headerlink" title="Part.1 准备工作"></a>Part.1 准备工作</h1><p>首先，您需要去<a target="_blank" rel="noopener" href="https://passport.rssoftware.cc/openapi">RSPassport公开平台</a>按照流程注册一个 应用程序(Application)</p>
+<p>随后，请等待我们的审核。我们的审核将在1-7个工作日内完成。<br><strong>请谅解，因为主要开发者Meow_Yan和EvanClaus都是学生</strong></p>
+<p>在您的应用审核通过后，请前往<em>管理</em>页面找到您专属的app id和app secre<br><strong>这很重要，这决定着你是否有资格访问我们的公开api。</strong><br><em><strong>请不要借用或泄漏的app secre，如果您借用或泄漏了它，您的app可能会被封禁</strong></em><br><em><strong>您保管app secre不当所导致的问题和后果，您个人/组织承担，RSPassport不承担任何责任</strong></em></p>
+<p>请记住您的app id和app secre，一会要用</p>
+<h1 id="Part-2-确定一个Redirection-URI"><a href="#Part-2-确定一个Redirection-URI" class="headerlink" title="Part.2 确定一个Redirection URI"></a>Part.2 确定一个Redirection URI</h1><p>什么是Redirection URI?<br>RedirectURI是当用户授权完成后所重定向到的URI，其包含以下参数：<br>| 参数 | 类型 | 介绍 |<br>| :–: | :–:|:—:|<br>|authorization_code|16位字符串|所返回的授权码，您可以在后端使用您的app secre获取指定用户的access_token。<strong>请注意：authorization_token只能使用一次</strong>|<br>|code_expires|字符串|格式: yyyy-MM-dd hh:mm:ss ， 到期时间 默认10分钟到期|</p>
+<p>请按照以上的参数来编写您的Redirection URI端的逻辑</p>
+<h1 id="Part-3-请求授权码"><a href="#Part-3-请求授权码" class="headerlink" title="Part.3 请求授权码"></a>Part.3 请求授权码</h1><p>请确保:</p>
+<ul>
+<li>您的APP已经通过审核</li>
+<li>您的Redirection URI已经准备好</li>
+</ul>
+<p>确定完之后，您就可以跟我开始登录的流程了</p>
+<p>首先，您需要在用户点击”登录“时将您的站点重定向到 <a target="_blank" rel="noopener" href="https://openapi.passport.rssoftware.cc/login">https://openapi.passport.rssoftware.cc/login</a><br>您需要传递以下参数:<br>| 参数 | 类型 | 介绍 |<br>| :–:|:–:|:—:|<br>| redirection_uri | 字符串 | 重定向到的uri，用于返回授权码|<br>| app_id | 字符串 | 一个32位的字符串，用于申请授权码 |</p>
+<p>随后，您就可以在您的Redirection URI处接收到授权码了</p>
+<h1 id="Part-4-请求access-token和refresh-token"><a href="#Part-4-请求access-token和refresh-token" class="headerlink" title="Part.4 请求access_token和refresh_token"></a>Part.4 请求access_token和refresh_token</h1><p>access_token 指的是用户的资源访问令牌<br>使用此令牌，您可以访问用户所授予访问权限的内容<br>有效期：7天</p>
+<p>请确保您的APP已经通过审核</p>
+<p>您需要在后端向我们的服务器请求:<br><a target="_blank" rel="noopener" href="https://openapi.passport.rssoftware.cc/user/get_token">https://openapi.passport.rssoftware.cc/user/get_token</a><br>您需要携带以下请求参数:<br>| 参数 | 类型 | 介绍 |<br>| :–:|:–:|:—:|<br>|authorization_code|16位字符串|用户的授权码，可以用此获得用户资源的访问令牌|<br>|app_secre|32位字符串|app密钥，用户后端交互|</p>
+<p>随后，我们的服务器会返回以下JSON内容：<br><em>示范:{“code”:0,”success”:true,”message”:”{“access_token”:”114514”,”refresh_token”:”1919”,”access_token_expires”:”2011-07-27 11:45:14”}”}</em></p>
+<p>如果返回的code不等于0，那就是说明请求失败，请查看message的内容以排错</p>
+<h1 id="Part-5-刷新access-token"><a href="#Part-5-刷新access-token" class="headerlink" title="Part.5 刷新access_token"></a>Part.5 刷新access_token</h1><p>当您的access_token过期后，您需要使用配套的refresh_token刷新<br>access_token是short-live的，但是refresh_token只要用户不尝试解除授权，那就是long-live的</p>
+<p>您需要在后端向我们的服务器请求:<br><a target="_blank" rel="noopener" href="https://openapi.passport.rssoftware.cc/user/refresh_token">https://openapi.passport.rssoftware.cc/user/refresh_token</a></p>
+<p>你需要携带以下请求参数：<br>| 参数 | 类型 | 介绍 |<br>| :–:|:–:|:—:|<br>|refresh_token|32位字符串|用户的刷新令牌，可用于刷新访问令牌|<br>|app_secre|32位字符串|app密钥，用户后端交互|</p>
+<p>随后，我们的服务器会返回以下JSON内容：<br><em>示范:{“code”:0,”success”:true,”message”:”{“access_token”:”114514”,”access_token_expires”:”2011-07-27 11:45:14”}”}</em></p>
+<p>如果返回的code不等于0，那就是说明请求失败，请查看message的内容以排错</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.JPG">
+        <p> 感谢OuO </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/meow-yan">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://www.rssoftware.cc">RSSoftware</a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://www.rspixel.top">RSPixel</a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://passport.rssoftware.cc">RSPassport</a></span>
+        <span>/</span>
+        
+        <span><a href="#">OvO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        if( '' || '')
+        var disqus_config = function () {
+            this.page.url = '';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://meow-yan-personal-blog.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+
+
+
+
+</html>
