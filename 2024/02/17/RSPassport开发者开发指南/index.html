@@ -13,7 +13,7 @@
 
     <title>
         
-        RSPassport开发者开发指南-登录 - Meow_Yan
+        RSPassport开发者开发指南 - Meow_Yan
         
     </title>
 
@@ -102,7 +102,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-1-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text">Part.1 准备工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-2-%E7%A1%AE%E5%AE%9A%E4%B8%80%E4%B8%AARedirection-URI"><span class="toc-text">Part.2 确定一个Redirection URI</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-3-%E8%AF%B7%E6%B1%82%E6%8E%88%E6%9D%83%E7%A0%81"><span class="toc-text">Part.3 请求授权码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-4-%E8%AF%B7%E6%B1%82access-token%E5%92%8Crefresh-token"><span class="toc-text">Part.4 请求access_token和refresh_token</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-5-%E5%88%B7%E6%96%B0access-token"><span class="toc-text">Part.5 刷新access_token</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%99%BB%E5%BD%95"><span class="toc-text">登录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-1-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text">Part.1 准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-2-%E7%A1%AE%E5%AE%9A%E4%B8%80%E4%B8%AARedirection-URI"><span class="toc-text">Part.2 确定一个Redirection URI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-3-%E8%AF%B7%E6%B1%82%E6%8E%88%E6%9D%83%E7%A0%81"><span class="toc-text">Part.3 请求授权码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-4-%E8%AF%B7%E6%B1%82access-token%E5%92%8Crefresh-token"><span class="toc-text">Part.4 请求access_token和refresh_token</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-5-%E5%88%B7%E6%96%B0access-token"><span class="toc-text">Part.5 刷新access_token</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C"><span class="toc-text">注册</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%92%B0%E5%86%99%E4%B8%AD"><span class="toc-text">撰写中</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -134,11 +134,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        RSPassport开发者开发指南-登录
+        RSPassport开发者开发指南
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2024-02-17 17:36:00</span></span>
+        <span class="attr">发布于：<span>2024-02-17 18:00:00</span></span>
         
         <span class="attr">标签：/
         
@@ -151,6 +151,9 @@
         <a class="tag" href="/tags/#Development" title="Development">Development</a>
         <span>/</span>
         
+        <a class="tag" href="/tags/#RSPassport Documentation" title="RSPassport Documentation">RSPassport Documentation</a>
+        <span>/</span>
+        
         
         </span>
         <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
@@ -158,14 +161,13 @@
 </span>
     </div>
     <div class="post-content no-indent">
-        <p>各位，大家好。我是Meow_Yan，接下来我将教你如何将您的应用注册到RSPassport系统，并遵循OAuth2.0标准登录。</p>
-<h1 id="Part-1-准备工作"><a href="#Part-1-准备工作" class="headerlink" title="Part.1 准备工作"></a>Part.1 准备工作</h1><p>首先，您需要去<a target="_blank" rel="noopener" href="https://passport.rssoftware.cc/openapi">RSPassport公开平台</a>按照流程注册一个 应用程序(Application)</p>
+        <h1 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h1><h2 id="Part-1-准备工作"><a href="#Part-1-准备工作" class="headerlink" title="Part.1 准备工作"></a>Part.1 准备工作</h2><p>首先，您需要去<a target="_blank" rel="noopener" href="https://passport.rssoftware.cc/openapi">RSPassport公开平台</a>按照流程注册一个 应用程序(Application)</p>
 <p>随后，请等待我们的审核。我们的审核将在1-7个工作日内完成。<br><strong>请谅解，因为主要开发者Meow_Yan和EvanClaus都是学生</strong></p>
 <p>在您的应用审核通过后，请前往<em>管理</em>页面找到您专属的app id和app secre<br><strong>这很重要，这决定着你是否有资格访问我们的公开api。</strong><br><em><strong>请不要借用或泄漏的app secre，如果您借用或泄漏了它，您的app可能会被封禁</strong></em><br><em><strong>您保管app secre不当所导致的问题和后果，您个人/组织承担，RSPassport不承担任何责任</strong></em></p>
 <p>请记住您的app id和app secre，一会要用</p>
-<h1 id="Part-2-确定一个Redirection-URI"><a href="#Part-2-确定一个Redirection-URI" class="headerlink" title="Part.2 确定一个Redirection URI"></a>Part.2 确定一个Redirection URI</h1><p>什么是Redirection URI?<br>RedirectURI是当用户授权完成后所重定向到的URI，其包含以下参数：<br>| 参数 | 类型 | 介绍 |<br>| :—: | :—:|:—:|<br>|authorization_code|16位字符串|所返回的授权码，您可以在后端使用您的app secre获取指定用户的access_token。<strong>请注意：authorization_token只能使用一次</strong>|<br>|code_expires|字符串|格式: yyyy-MM-dd hh:mm:ss ， 到期时间 默认10分钟到期|</p>
+<h2 id="Part-2-确定一个Redirection-URI"><a href="#Part-2-确定一个Redirection-URI" class="headerlink" title="Part.2 确定一个Redirection URI"></a>Part.2 确定一个Redirection URI</h2><p>什么是Redirection URI?<br>RedirectURI是当用户授权完成后所重定向到的URI，其包含以下参数：<br>| 参数 | 类型 | 介绍 |<br>| :—: | :—:|:—:|<br>|authorization_code|16位字符串|所返回的授权码，您可以在后端使用您的app secre获取指定用户的access_token。<strong>请注意：authorization_token只能使用一次</strong>|<br>|code_expires|字符串|格式: yyyy-MM-dd hh:mm:ss ， 到期时间 默认10分钟到期|</p>
 <p>请按照以上的参数来编写您的Redirection URI端的逻辑</p>
-<h1 id="Part-3-请求授权码"><a href="#Part-3-请求授权码" class="headerlink" title="Part.3 请求授权码"></a>Part.3 请求授权码</h1><p>请确保:</p>
+<h2 id="Part-3-请求授权码"><a href="#Part-3-请求授权码" class="headerlink" title="Part.3 请求授权码"></a>Part.3 请求授权码</h2><p>请确保:</p>
 <ul>
 <li>您的APP已经通过审核</li>
 <li>您的Redirection URI已经准备好</li>
@@ -173,17 +175,17 @@
 <p>确定完之后，您就可以跟我开始登录的流程了</p>
 <p>首先，您需要在用户点击”登录“时将您的站点重定向到 <a target="_blank" rel="noopener" href="https://openapi.passport.rssoftware.cc/login">https://openapi.passport.rssoftware.cc/login</a><br>您需要传递以下参数:<br>| 参数 | 类型 | 介绍 |<br>| :—:|:—:|:—-:|<br>| redirection_uri | 字符串 | 重定向到的uri，用于返回授权码|<br>| app_id | 字符串 | 一个32位的字符串，用于申请授权码 |</p>
 <p>随后，您就可以在您的Redirection URI处接收到授权码了</p>
-<h1 id="Part-4-请求access-token和refresh-token"><a href="#Part-4-请求access-token和refresh-token" class="headerlink" title="Part.4 请求access_token和refresh_token"></a>Part.4 请求access_token和refresh_token</h1><p>access_token 指的是用户的资源访问令牌<br>使用此令牌，您可以访问用户所授予访问权限的内容<br>有效期：7天</p>
+<h2 id="Part-4-请求access-token和refresh-token"><a href="#Part-4-请求access-token和refresh-token" class="headerlink" title="Part.4 请求access_token和refresh_token"></a>Part.4 请求access_token和refresh_token</h2><p>access_token 指的是用户的资源访问令牌<br>使用此令牌，您可以访问用户所授予访问权限的内容<br>有效期：7天</p>
 <p>请确保您的APP已经通过审核</p>
 <p>您需要在后端向我们的服务器请求:<br><a target="_blank" rel="noopener" href="https://openapi.passport.rssoftware.cc/user/get_token">https://openapi.passport.rssoftware.cc/user/get_token</a><br>您需要携带以下请求参数:<br>| 参数 | 类型 | 介绍 |<br>| :—:|:—:|:—:|<br>|authorization_code|16位字符串|用户的授权码，可以用此获得用户资源的访问令牌|<br>|app_secre|32位字符串|app密钥，用户后端交互|</p>
 <p>随后，我们的服务器会返回以下JSON内容：<br><em>示范:{“code”:0,”success”:true,”message”:”{“access_token”:”114514”,”refresh_token”:”1919”,”access_token_expires”:”2011-07-27 11:45:14”}”}</em></p>
 <p>如果返回的code不等于0，那就是说明请求失败，请查看message的内容以排错</p>
-<h1 id="Part-5-刷新access-token"><a href="#Part-5-刷新access-token" class="headerlink" title="Part.5 刷新access_token"></a>Part.5 刷新access_token</h1><p>当您的access_token过期后，您需要使用配套的refresh_token刷新<br>access_token是short-live的，但是refresh_token只要用户不尝试解除授权，那就是long-live的</p>
+<h2 id="Part-5-刷新access-token"><a href="#Part-5-刷新access-token" class="headerlink" title="Part.5 刷新access_token"></a>Part.5 刷新access_token</h2><p>当您的access_token过期后，您需要使用配套的refresh_token刷新<br>access_token是short-live的，但是refresh_token只要用户不尝试解除授权，那就是long-live的</p>
 <p>您需要在后端向我们的服务器请求:<br><a target="_blank" rel="noopener" href="https://openapi.passport.rssoftware.cc/user/refresh_token">https://openapi.passport.rssoftware.cc/user/refresh_token</a></p>
 <p>你需要携带以下请求参数：<br>| 参数 | 类型 | 介绍 |<br>| :—:|:—:|:—:|<br>|refresh_token|32位字符串|用户的刷新令牌，可用于刷新访问令牌|<br>|app_secre|32位字符串|app密钥，用户后端交互|</p>
 <p>随后，我们的服务器会返回以下JSON内容：<br><em>示范:{“code”:0,”success”:true,”message”:”{“access_token”:”114514”,”access_token_expires”:”2011-07-27 11:45:14”}”}</em></p>
 <p>如果返回的code不等于0，那就是说明请求失败，请查看message的内容以排错</p>
-
+<h1 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h1><h2 id="撰写中"><a href="#撰写中" class="headerlink" title="撰写中"></a>撰写中</h2>
         
             <div class="donate-container">
     <div class="donate-button">
