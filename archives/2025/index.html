@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Archives | MeowYan的个人博客</title>
+    <title>Archives | MeowYan</title>
     <meta name="author" content="MeowYan" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
-    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="icon" href="/images/meowyan.jpg" />
     <link rel="preconnect" href="https://s4.zstatic.net" />
 <script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
 <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
@@ -66,17 +66,12 @@
         <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
     <nav id="desktop-menu">
         <a class="title" href="/">
-            <span>MEOWYAN的个人博客</span>
+            <span>MEOWYAN</span>
         </a>
         
         <a href="/">
             <i class="fa-solid fa-house fa-fw"></i>
             <span>&ensp;Home</span>
-        </a>
-        
-        <a href="/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
         </a>
         
         <a href="/archives">
@@ -98,7 +93,7 @@
     <nav id="mobile-menu">
         <div class="title" @click="showMenuItems = !showMenuItems">
             <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;MEOWYAN的个人博客</span>
+            <span>&emsp;MEOWYAN</span>
         </div>
         <transition name="slide">
             <div class="items" v-show="showMenuItems">
@@ -109,15 +104,6 @@
                             <i class="fa-solid fa-house fa-fw"></i>
                         </div>
                         <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
-                    </div>
-                </a>
-                
-                <a href="/about">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-id-card fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
                     </div>
                 </a>
                 
@@ -164,12 +150,12 @@
     
     <div id="timeline-wrap" ref="timeline">
         
-        <div class="timeline" data-title="helloworld">
+        <div class="timeline" data-title="占位文件">
             <div class="timeline-tail"></div>
             <div class="timeline-content">
                 <div class="item-time">2025/2/14</div>
-                <a href="/2025/02/14/hello-world/">
-                    <h3>Hello World</h3>
+                <a href="/2025/02/14/%E5%8D%A0%E4%BD%8D%E6%96%87%E4%BB%B6/">
+                    <h3>占位文件</h3>
                 </a>
                 <div class="info">
                     
@@ -185,7 +171,7 @@
     <div id="footer-wrap">
         <div>
             &copy;
-            2025 - 2025 MeowYan的个人博客
+            2025 - 2025 MeowYan
             <span id="footer-icon">
                 <i class="fa-solid fa-font-awesome fa-fw"></i>
             </span>
